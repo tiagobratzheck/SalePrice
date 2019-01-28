@@ -82,13 +82,13 @@ public class Product {
 		return this.priceProduct;
 	}
 		
-	public Double breakPoint() {
+	public Integer breakPoint() {
 		Double unitMargin = this.priceProduct * (this.margin / 100);
 		Double totalExpenses = 0.0;
 		for(Expenses expense : expenses) {
 			totalExpenses += expense.getValue();			
 		}
-		Double breakEvenPoint = (totalExpenses / unitMargin);
+		int breakEvenPoint = (int) (totalExpenses / unitMargin);
 		return breakEvenPoint;
 	}
 	
@@ -96,12 +96,5 @@ public class Product {
 		Double unitEarning = this.priceProduct * (this.margin / 100);
 		return unitEarning;
 	}
-	
-	/*public void checkingUnitCost() {
-		for(Costs cost : costs) {
-			System.out.printf(cost.getCostName() + cost.getCostPercent());
-		}
-	}*/
-	
-			
+					
 }

@@ -15,22 +15,21 @@ public class Program {
 	}
 
 	public static void startSystem() {
-		System.out.println("System has started!");
-		System.out.println("");
+		System.out.println("System has started!");		
 		menu();
 	}
 
 	public static void menu() {
 		
 		System.out.println("In this part of the system, you will enter the amount of variable"
-				+ " costs and expenses of the product. You need to enter the name, percentage and value.");
+				+ " costs and expenses of the product. You need to enter the name, percentage and value.");		
 		System.out.println("");
 		Scanner input = new Scanner(System.in);
 		
 		try {
 			System.out.print("Enter the unit cost of the product: ");
 			Double unit = input.nextDouble();
-			System.out.println("Enter the margin you prefer (without %): ");
+			System.out.print("Enter the margin you prefer (without %): ");
 			Double margin = input.nextDouble();
 			Product product = new Product(unit, margin);
 			
@@ -58,9 +57,10 @@ public class Program {
 				product.addExpenses(expense);
 						
 			}		
-			System.out.println("The unit price of product is: "+String.format("%.2f",product.mud()));
-			System.out.println("The break point of product em number of sales is: "+String.format("%.2f",product.breakPoint()));
-			//product.checkingUnitCost();
+			System.out.println("The unit price of product is: $"+String.format("%.2f",product.mud()));
+			System.out.println("The unit earning of product is: $"+String.format("%.2f",product.checkingUnitValue()));
+			System.out.println("The break point in number of sales is: "+product.breakPoint());
+			
 		}
 		catch(InputMismatchException e) {
 			 System.out.println("Exception gotten: " + e);
